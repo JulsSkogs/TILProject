@@ -1,4 +1,5 @@
 # TILProject
+
 My version of the Today I Learned webapp built along with Jonas Schmedtmann's course.
 
-This project makes use of Supabase, HTML, CSS, JavaScript and React.
+This project makes use of Supabase, HTML, CSS, JavaScript and React, and will be deployed using Netlify.
