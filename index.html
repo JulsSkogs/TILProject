@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600&display=swap"
       rel="stylesheet"
     />
 
@@ -30,7 +30,7 @@
           <h1>Today I Learned</h1>
         </div>
 
-        <button>Share a fact</button>
+        <button class="btn btn-large">Share a fact</button>
       </header>
 
       <form class="fact-form">
@@ -45,15 +45,31 @@
           <option value="science">Science</option>
           <option value="finance">Finance</option>
         </select>
-        <button>Post</button>
+        <button class="btn btn-large">Post</button>
       </form>
 
       <main class="main">
         <aside>
           <ul>
-            <li><button>All</button></li>
-            <li><button>Technology</button></li>
-            <li><button>Science</button></li>
+            <li class="category">
+              <button class="btn btn-all-categories">All</button>
+            </li>
+            <li>
+              <button
+                class="btn btn-category"
+                style="background-color: #3b82f6"
+              >
+                Technology
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                style="background-color: #16a34a"
+              >
+                Science
+              </button>
+            </li>
           </ul>
         </aside>
 
@@ -73,9 +89,9 @@
                 >#technology</span
               >
               <div class="vote-buttons">
-                <button>👍 <strong>24</strong></button>
-                <button>🤯 <strong>9</strong></button>
-                <button>⛔️ <strong>4</strong></button>
+                <button>👍 24</button>
+                <button>🤯 9</button>
+                <button>⛔️ 4</button>
               </div>
             </li>
 
