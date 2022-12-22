@@ -11,6 +11,10 @@ body {
   padding: 64px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Layout*/
 
 .container {
