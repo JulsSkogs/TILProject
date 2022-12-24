@@ -1,6 +1,8 @@
 "use strict";
 // console.log("Hello World!");
 
+const mykey = config.key;
+
 const initialFacts = [
   {
     id: 1,
@@ -58,20 +60,18 @@ factsList.innerHTML = "";
 loadFacts();
 
 async function loadFacts() {
-  const res = await fetch(
-    "https://qaxcjnetpgsuqojzatyr.supabase.co/rest/v1/facts",
-    {
-      headers: {
-        apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFheGNqbmV0cGdzdXFvanphdHlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzE1OTEwNjYsImV4cCI6MTk4NzE2NzA2Nn0.m6vPt7X2ZKKQB8tsv-u3rvwvMy74WDtBai3Y3JUsa-s",
-        authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFheGNqbmV0cGdzdXFvanphdHlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzE1OTEwNjYsImV4cCI6MTk4NzE2NzA2Nn0.m6vPt7X2ZKKQB8tsv-u3rvwvMy74WDtBai3Y3JUsa-s",
-      },
-    }
-  );
+  const res = await fetch(`${config.url}`, {
+    headers: {
+      apikey: `${config.key}`,
+      authorization: `Bearer ${config.key}`,
+    },
+  });
+
   const data = await res.json();
   console.log(data);
-  createFactsList(data);
+  const filteredData = data.filter((fact) => fact.category === "society");
+
+  createFactsList(filteredData);
 }
 
 function createFactsList(dataArray) {
@@ -88,7 +88,7 @@ function createFactsList(dataArray) {
           >${fact.category}</span>
         </li>`
   );
-  console.log(htmlArr);
+
   const html = htmlArr.join("");
   factsList.insertAdjacentHTML("afterbegin", html);
 }
@@ -263,3 +263,6 @@ btn.addEventListener("click", function () {
 // const factAges = initialFacts.map((el) => calcFactAge(el.createdIn));
 // console.log(factAges);
 // console.log(factAges.join("-"));
+
+const test = [7, 64, 6, -23, 11].filter((el) => el > 10);
+console.log(test);
